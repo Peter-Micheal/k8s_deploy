@@ -1,0 +1,26 @@
+apiVersion: v1
+data:
+  app: jmbx-in
+  env: qa-01
+  template: web
+  volumes: '[
+    {
+        /mnt/p2p : /mnt/jimu/jmbx-www/qa-01
+    },
+    {
+        /mnt/jmbx-in : /mnt/jimu/jmbx-in/qa-01
+    }
+  ]'
+  nginx_hash: '$remote_addr consistent'
+  memory: '16106127360'
+  cpu: '2'
+  current_term: '2'
+  count: '2'
+
+
+kind: ConfigMap
+metadata:
+    name: jmbx-in.qa-01
+    labels: {
+        system : 'True'
+    }
